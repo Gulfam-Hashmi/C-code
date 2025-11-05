@@ -1,45 +1,36 @@
 #include <iostream>
 using namespace std;
 
+void print(int x)
+{
+	cout << "[";
+	for(int i = 1 ; i <= x; i++)
+	{
+		cout << i << ' ';
+	} 
+	cout<<"] ";
+}
+
+void reverse(int y)
+{
+	cout << "[";
+	for(int i = y ; i >= 1; i--)
+	{
+		cout << i << ' ';
+	} 
+	cout<<"] "<<endl;
+}
+
 int main()
 {
 	int n;
-	int pass = 0;
-	int fail = 0;
-	cout<< "Enter the number of students: ";
+	cout << "N = ";
 	cin >> n;
-	int i = 0;
-	while(i < n)
+	for(int i = 1 ; i <= n ; i++)
 	{
-		double marks;
-		cout<< "Mark 1: ";
-		cin >> marks;
-		
-		if(marks >= 50)
-		{
-			 cout<<"Pass";
-			 pass++;
-		}else{
-			cout<<"Fail";
-			fail++;
-		}
+		print(i);
+		reverse(i);
 		cout<<endl;
-		i++;
-	}
-	
-	cout <<"Total PASS students: " <<pass<<endl;
-	cout <<"Total FAIL students: " <<fail<<endl;
-	
-	double percentage = (pass / n) * 100;
-	if(percentage >= 80)
-	{
-		cout<<"Good result";
-	}
-	else 
-	{
-		cout<<"Poor result";
-	}
-	
+	}	
 	return 0;
 }
-		
