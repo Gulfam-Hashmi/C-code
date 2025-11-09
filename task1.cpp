@@ -1,36 +1,29 @@
 #include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
-void print(int x)
-{
-	cout << "[";
-	for(int i = 1 ; i <= x; i++)
-	{
-		cout << i << ' ';
-	} 
-	cout<<"] ";
+void drawW(int size) {
+    if (size < 3) size = 3;
+    if (size > 10) size = 10;
+	int collength = 4 * size - 3;
+    for (int row = 0; row < size; ++row) {
+        for (int col = 0; col < collength; ++col) {
+            if (col == row || col == 2 * size - 2 - row || col == 2 * size - 2 + row || col == collength -1 - row) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
 }
 
-void reverse(int y)
-{
-	cout << "[";
-	for(int i = y ; i >= 1; i--)
-	{
-		cout << i << ' ';
-	} 
-	cout<<"] "<<endl;
-}
-
-int main()
-{
-	int n;
-	cout << "N = ";
-	cin >> n;
-	for(int i = 1 ; i <= n ; i++)
-	{
-		print(i);
-		reverse(i);
-		cout<<endl;
-	}	
-	return 0;
+int main() {
+    int size;
+    cout << "Enter size (3-10): ";
+    cin >> size;
+    drawW(size);
+    return 0;
 }
